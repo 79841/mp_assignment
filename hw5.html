@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        function quest0() {
+            const s = prompt("초 단위 시간을 입력하세요")
+            console.log(`${parseInt(s / 60)} 분 ${s % 60} 초입니다`)
+        }
+
+        function quest1() {
+            const p1 = {
+                x: prompt("첫 번째 점의 x좌표를 입력하세요"),
+                y: prompt("첫 번째 점의 y좌표를 입력하세요"),
+            }
+            const p2 = {
+                x: prompt("두 번째 점의 x좌표를 입력하세요"),
+                y: prompt("두 번째 점의 y좌표를 입력하세요"),
+            }
+
+
+            let distance = getDist(p1, p2); // 반드시 이 코드를 이용하세요
+            console.log(distance);
+
+        }
+
+        function getDist(p1, p2) { // 입력 인자 설정 필요
+            return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2)
+        }
+
+        function quest2(str) {
+
+            console.log(str.toUpperCase())
+        }
+
+        function quest3() {
+            const num1 = Number(prompt("첫 번째 숫자를 입력하세요"))
+            const oper = prompt("연산자를 입력하세요")
+            const num2 = Number(prompt("두 번째 숫자를 입력하세요"))
+
+            var answer = operate(num1, oper, num2); // 반드시 이 코드를 사용하세요
+            console.log("정답은 %d입니다.", answer);
+        }
+
+        function operate(num1, oper, num2) { // 반드시 이 함수를 이용하여 연산 결과를 계산하세요
+
+            // 여기에 스크립트를 작성하세요
+            // 단, 반드시 switch 문을 활용하세요
+            switch (oper) {
+                case "+":
+                    return num1 + num2
+                case "-":
+                    return num1 - num2
+                case "*":
+                    return num1 * num2
+                case "/":
+                    return parseInt(num1 / num2)
+                default:
+                    return
+            }
+        }
+
+        function quest4() {
+            const rsp = ["가위", "바위", "보"]
+            const u = prompt("가위 바위 보!")
+            const c = rsp[Math.floor(Math.random() * 3)]
+
+            console.log(`컴퓨터: ${c}`)
+
+            if (u === "가위" && c === "보" || u === "바위" && c === "가위" || u === "보" && u === "바위") {
+                console.log("사용자 승리!")
+            }
+            else if (u === c) {
+                console.log("무승부!")
+            }
+            else {
+                console.log("컴퓨터 승리!")
+            }
+
+            // 여기에 스크립트를 작성하세요
+        }
+
+        function quest5() {
+            str = prompt('문자열을 입력하세요') // 반드시 이 코드를 사용하세요
+            console.log(myReverse(str));
+        }
+
+        function myReverse(str) {
+
+            // 여기에 스크립트를 작성하세요
+            // 반드시 반복문을 이용하여 str의 내용을 뒤집으세요
+            let output = ''
+            for (let i = str.length - 1; i > - 1; i--) {
+                output += str[i]
+            }
+            return output
+        }
+
+        function quest6() {
+            let i = 0
+            while (i >= 0) {
+                if (i % 2) {
+                    console.log(`${i}를 입력하셨네요.`)
+                }
+                i = prompt("숫자를 입력하세요:")
+            }
+            console.log("끝!")
+
+            // 여기에 스크립트를 작성하세요
+        }
+
+        function quest7() {
+            const str = prompt("문자열을 입력해주세요.")
+            return str.split(' ').reduce(
+                (acc, cur) => {
+                    if (cur[0].toUpperCase() == cur[0]) {
+                        return acc += cur[0]
+                    }
+                    return acc
+                }, '')
+            // 여기에 스크립트를 작성하세요
+
+        }
+
+        let testStr = 'My name is mymy. Your name is youryour. His name is hishis. Her name is herher. So, my, your, his, her, name will be mymyyouryourhishisherehr.';
+        // 위 변수를 이용하여 quest8()함수를 실행하세요
+
+        function quest8(str) {
+            // 여기에 스크립트를 작성하세요
+            Array
+                .from(new Set(str.split(' ')))
+                .sort()
+                .forEach(i => console.log(i))
+        }
+
+        let longStr = "Computer engineering has been rapidly changed than any other academic disciplines; these changes are immediately reflected in the industrial field.";
+        // 위 변수를 이용하여 quest9()함수를 실행하세요
+
+        function quest9(str) {
+
+            // 여기에 스크립트를 작성하세요
+            const sCounts = {}
+            const letters = [...new Set(str.replaceAll(" ", "").split(""))]
+            for (c of letters) {
+                let count = Array.from(str).reduce(
+                    (acc, cur) => cur === c ? acc += 1 : acc
+                    , 0)
+                console.log(`${c}:${count}`)
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
